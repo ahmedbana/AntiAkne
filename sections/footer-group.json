@@ -1,22 +1,13 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "type": "footer",
   "name": "t:names.footer",
   "sections": {
     "footer": {
       "type": "footer",
       "blocks": {
-        "group_wErUQf": {
+        "group_newsletter": {
           "type": "group",
-          "name": "Join our email list",
+          "name": "Newsletter Signup",
           "settings": {
             "link": "",
             "open_in_new_tab": false,
@@ -54,22 +45,22 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "text_pF6rVi": {
+            "footer_heading": {
               "type": "text",
               "name": "Heading",
               "settings": {
-                "text": "<h2>Join our email list</h2>",
+                "text": "<h2>Stay in the loop</h2>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
                 "type_preset": "h3",
-                "font": "var(--font-body--family)",
+                "font": "var(--font-heading--family)",
                 "font_size": "",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
+                "color": "var(--color-foreground-heading)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -80,11 +71,11 @@
               },
               "blocks": {}
             },
-            "text_HafH7P": {
+            "footer_text": {
               "type": "text",
               "name": "Text",
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.</p>",
+                "text": "<p>Get skincare tips, exclusive deals, and early access to new products. Join the AntiAcne community.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -108,11 +99,11 @@
             }
           },
           "block_order": [
-            "text_pF6rVi",
-            "text_HafH7P"
+            "footer_heading",
+            "footer_text"
           ]
         },
-        "email-signup_HafH7P": {
+        "email_signup": {
           "type": "email-signup",
           "name": "Email Signup",
           "settings": {
@@ -121,16 +112,16 @@
         }
       },
       "block_order": [
-        "group_wErUQf",
-        "email-signup_HafH7P"
+        "group_newsletter",
+        "email_signup"
       ],
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
         "gap": 20,
         "color_scheme": "scheme-5",
-        "padding-block-start": 36,
-        "padding-block-end": 36
+        "padding-block-start": 48,
+        "padding-block-end": 48
       }
     },
     "utilities": {
@@ -141,13 +132,13 @@
         "divider_thickness": 1,
         "color_scheme": "scheme-5",
         "padding-block-start": 12,
-        "padding-block-end": 16
+        "padding-block-end": 20
       },
       "blocks": {
         "copyright": {
           "type": "footer-copyright",
           "settings": {
-            "show_powered_by": true,
+            "show_powered_by": false,
             "font_size": "0.75rem",
             "case": "none"
           }
@@ -162,11 +153,11 @@
         "social_icons": {
           "type": "social-links",
           "settings": {
-            "facebook_url": "https://www.facebook.com",
-            "instagram_url": "https://www.instagram.com",
-            "tiktok_url": "https://www.tiktok.com",
-            "twitter_url": "https://www.twitter.com",
-            "youtube_url": "https://www.youtube.com"
+            "facebook_url": "https://www.facebook.com/antiacne",
+            "instagram_url": "https://www.instagram.com/antiacne",
+            "tiktok_url": "https://www.tiktok.com/@antiacne",
+            "twitter_url": "",
+            "youtube_url": ""
           }
         }
       },

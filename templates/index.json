@@ -1,28 +1,19 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
- {
+{
   "sections": {
-    "hero_jVaWmY": {
+    "hero_antiacne": {
       "type": "hero",
       "blocks": {
-        "text_YLPk4p": {
+        "hero_heading": {
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<h1>Clear Skin Starts Here</h1>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
+            "type_preset": "h1",
+            "font": "var(--font-heading--family)",
+            "font_size": "",
             "line_height": "normal",
             "letter_spacing": "normal",
             "case": "none",
@@ -38,25 +29,68 @@
           },
           "blocks": {}
         },
-        "button_H9gpTf": {
+        "hero_subtext": {
+          "type": "text",
+          "name": "Subheading",
+          "settings": {
+            "text": "<p>AntiAcne DrySerum Wipes — a 30-day nanofiber treatment powered by patented NUENEX® technology. 100% natural active ingredients. No preservatives. No perfumes. Just science that works.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1.125rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 8,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "hero_cta": {
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "Shop all",
+            "label": "Shop Now",
             "link": "shopify://collections/all",
+            "open_in_new_tab": false,
+            "style_class": "button-primary",
+            "width": "fit-content",
+            "custom_width": 100,
+            "width_mobile": "fill",
+            "custom_width_mobile": 100
+          },
+          "blocks": {}
+        },
+        "hero_secondary_cta": {
+          "type": "button",
+          "name": "Secondary Button",
+          "settings": {
+            "label": "Learn More",
+            "link": "#how-it-works",
             "open_in_new_tab": false,
             "style_class": "button-secondary",
             "width": "fit-content",
             "custom_width": 100,
-            "width_mobile": "fit-content",
+            "width_mobile": "fill",
             "custom_width_mobile": 100
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
+        "hero_heading",
+        "hero_subtext",
+        "hero_cta",
+        "hero_secondary_cta"
       ],
       "name": "t:names.hero",
       "settings": {
@@ -69,24 +103,79 @@
         "horizontal_alignment": "space-between",
         "vertical_alignment": "flex-end",
         "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
+        "horizontal_alignment_flex_direction_column": "flex-start",
         "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
+        "gap": 16,
         "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
+        "section_height": "large",
+        "section_height_custom": 70,
         "color_scheme": "scheme-6",
         "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
+        "overlay_color": "#0F4F4080",
+        "overlay_style": "gradient",
         "gradient_direction": "to bottom",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
+        "padding-block-start": 120,
+        "padding-block-end": 80
       }
     },
-    "product_list_fa6P9H": {
+    "how_it_works": {
+      "type": "custom-liquid",
+      "name": "How It Works",
+      "settings": {
+        "custom_liquid": "<section id=\"how-it-works\" class=\"antiacne-how-it-works\">\n  <div class=\"antiacne-section-header\">\n    <span class=\"antiacne-label\">Simple & Effective</span>\n    <h2>How It Works</h2>\n    <p>Your 30-day journey to clear, radiant skin in just 3 simple steps.</p>\n  </div>\n  <div class=\"antiacne-steps\">\n    <div class=\"antiacne-step\">\n      <div class=\"antiacne-step-number\">01</div>\n      <div class=\"antiacne-step-icon\">💧</div>\n      <h3>Activate</h3>\n      <p>Remove the protective paper and spray 5–10 pumps of water onto the white nanofiber layer to activate the DrySerum.</p>\n    </div>\n    <div class=\"antiacne-step\">\n      <div class=\"antiacne-step-number\">02</div>\n      <div class=\"antiacne-step-icon\">✨</div>\n      <h3>Apply</h3>\n      <p>Gently wipe the activated pad across your face and décolleté. The nanofibers release active ingredients directly into your skin.</p>\n    </div>\n    <div class=\"antiacne-step\">\n      <div class=\"antiacne-step-number\">03</div>\n      <div class=\"antiacne-step-icon\">🌿</div>\n      <h3>Transform</h3>\n      <p>Use daily for 30 days. Phase I (days 1–15) fights acne. Phase II (days 16–30) restores balance and regenerates.</p>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "technology_section": {
+      "type": "custom-liquid",
+      "name": "Technology",
+      "settings": {
+        "custom_liquid": "<section class=\"antiacne-technology\">\n  <div class=\"antiacne-tech-grid\">\n    <div class=\"antiacne-tech-content\">\n      <span class=\"antiacne-label\">Patented Innovation</span>\n      <h2>DrySerum™ Technology</h2>\n      <p>AntiAcne is powered by <strong>NUENEX®</strong>, a patented nanofiber technology developed by RESPILON. Active ingredients are encapsulated in nanofibers and released gradually and precisely into your skin.</p>\n      <ul class=\"antiacne-tech-features\">\n        <li><span class=\"antiacne-check\">✓</span> Up to 100% natural active ingredients</li>\n        <li><span class=\"antiacne-check\">✓</span> No preservatives or synthetic fragrances</li>\n        <li><span class=\"antiacne-check\">✓</span> Clinically proven to reduce acne</li>\n        <li><span class=\"antiacne-check\">✓</span> Waterless manufacturing process</li>\n        <li><span class=\"antiacne-check\">✓</span> Eco-friendly minimal energy production</li>\n      </ul>\n    </div>\n    <div class=\"antiacne-tech-visual\">\n      <div class=\"antiacne-tech-card\">\n        <div class=\"antiacne-tech-stat\">100%</div>\n        <p>Natural Active Ingredients</p>\n      </div>\n      <div class=\"antiacne-tech-card\">\n        <div class=\"antiacne-tech-stat\">30</div>\n        <p>Day Complete Treatment</p>\n      </div>\n      <div class=\"antiacne-tech-card\">\n        <div class=\"antiacne-tech-stat\">2</div>\n        <p>Targeted Treatment Phases</p>\n      </div>\n      <div class=\"antiacne-tech-card\">\n        <div class=\"antiacne-tech-stat\">0</div>\n        <p>Preservatives & Chemicals</p>\n      </div>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "two_phases": {
+      "type": "custom-liquid",
+      "name": "Two Phases",
+      "settings": {
+        "custom_liquid": "<section class=\"antiacne-phases\">\n  <div class=\"antiacne-section-header\">\n    <span class=\"antiacne-label\">The Science</span>\n    <h2>Two Phases. One Complete Cure.</h2>\n    <p>Each phase is carefully formulated to target different aspects of acne treatment.</p>\n  </div>\n  <div class=\"antiacne-phases-grid\">\n    <div class=\"antiacne-phase antiacne-phase-1\">\n      <div class=\"antiacne-phase-badge\">Phase I — Days 1–15</div>\n      <h3>Deep Clean & Calm</h3>\n      <p>Intensively cleanses, fights bacteria, and reduces redness and inflammation.</p>\n      <div class=\"antiacne-ingredients-list\">\n        <h4>Key Ingredients</h4>\n        <div class=\"antiacne-ingredient-tags\">\n          <span>Hydrolyzed Collagen</span>\n          <span>Azelaic Acid</span>\n          <span>Niacinamide</span>\n          <span>Tea Tree Oil</span>\n          <span>Zinc Ferment</span>\n          <span>Glycerin</span>\n        </div>\n      </div>\n    </div>\n    <div class=\"antiacne-phase antiacne-phase-2\">\n      <div class=\"antiacne-phase-badge\">Phase II — Days 16–30</div>\n      <h3>Balance & Regenerate</h3>\n      <p>Restores skin's natural equilibrium, promotes regeneration, and maintains clarity.</p>\n      <div class=\"antiacne-ingredients-list\">\n        <h4>Key Ingredients</h4>\n        <div class=\"antiacne-ingredient-tags\">\n          <span>Hydrolyzed Collagen</span>\n          <span>Azelaic Acid</span>\n          <span>Star Anise Extract</span>\n          <span>Dragon Fruit Extract</span>\n          <span>Red Clover Extract</span>\n          <span>Niacinamide</span>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "testimonials": {
+      "type": "custom-liquid",
+      "name": "Testimonials",
+      "settings": {
+        "custom_liquid": "<section class=\"antiacne-testimonials\">\n  <div class=\"antiacne-section-header\">\n    <span class=\"antiacne-label\">Real Results</span>\n    <h2>What Our Customers Say</h2>\n  </div>\n  <div class=\"antiacne-reviews-grid\">\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★★</div>\n      <p>\"This product is amazing — it does exactly what it promises. My skin is beautiful, glowing, and acne has significantly reduced. I'll definitely keep buying it!\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Nikola T.</strong></div>\n    </div>\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★★</div>\n      <p>\"After trying these wipes, I'm genuinely surprised. My skin has improved, it's smoother, and acne has become minimal. I'd absolutely buy this again.\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Vendula L.</strong></div>\n    </div>\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★★</div>\n      <p>\"After the first use, you can already see results. The product significantly reduces redness. After a few days, acne improves dramatically.\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Kristýna V.</strong></div>\n    </div>\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★★</div>\n      <p>\"I'm 25 and still have acne-prone skin. Thanks to AntiAcne, my painful subcutaneous acne barely forms anymore. My pores are visibly smaller and my skin feels absolutely perfect.\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Lucie M.</strong></div>\n    </div>\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★★</div>\n      <p>\"I've been treating acne for years and tried so many products. AntiAcne is one that actually works! I noticed changes after just one week. After a month, my skin is brighter, more even, and my pores are reduced.\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Eliška F.</strong></div>\n    </div>\n    <div class=\"antiacne-review\">\n      <div class=\"antiacne-stars\">★★★★☆</div>\n      <p>\"The packaging is stylish and portable — I even took it camping! My skin is less red and acne is significantly less visible. I'd recommend it for acne-prone skin and blackheads.\"</p>\n      <div class=\"antiacne-reviewer\"><strong>Nikol H.</strong></div>\n    </div>\n  </div>\n</section>",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "faq_section": {
+      "type": "custom-liquid",
+      "name": "FAQ",
+      "settings": {
+        "custom_liquid": "<section class=\"antiacne-faq\">\n  <div class=\"antiacne-section-header\">\n    <span class=\"antiacne-label\">Got Questions?</span>\n    <h2>Frequently Asked Questions</h2>\n  </div>\n  <div class=\"antiacne-faq-list\">\n    <details class=\"antiacne-faq-item\">\n      <summary>What if my skin feels dry after using AntiAcne?</summary>\n      <div class=\"antiacne-faq-answer\"><p>AntiAcne wipes contain active ingredients that intensively cleanse and nourish skin in one step, fully replacing a regular skincare routine. However, every skin reacts differently. If you experience mild dryness, you can apply your favorite moisturizer after use. It won't reduce AntiAcne's effectiveness.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>How much water should I use to activate the wipe?</summary>\n      <div class=\"antiacne-faq-answer\"><p>Remove the protective paper and spray about 5–10 pumps of water onto the white nanofiber layer. Don't be afraid to use enough water — the better the nanofiber is moistened, the more effectively it works.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>Is AntiAcne suitable for sensitive skin?</summary>\n      <div class=\"antiacne-faq-answer\"><p>Yes. AntiAcne contains only natural active ingredients without preservatives or fragrances. Thanks to DrySerum technology, ingredients are released gradually and precisely, working gently yet effectively. If you have extremely sensitive skin, we recommend starting with a patch test.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>Can acne get worse during the treatment?</summary>\n      <div class=\"antiacne-faq-answer\"><p>For some people, acne may briefly become more visible in the first days. This is a natural skin purging process — active ingredients draw impurities to the surface. It's typically a temporary phase, followed by calming, balancing, and long-term improvement.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>Why is it important to complete the full 30-day treatment?</summary>\n      <div class=\"antiacne-faq-answer\"><p>AntiAcne is designed as a complete 30-day cure with two connected phases. Phase I knocks out acne — cleansing and reducing redness. Phase II restores balance, supports regeneration, and keeps skin calm. The best results come from completing both phases, as their combination delivers long-term effects.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>Why should I keep the tin box closed?</summary>\n      <div class=\"antiacne-faq-answer\"><p>The wipes are stored in a practical metal tin that protects their effectiveness throughout the 30-day cure. Water activates the active ingredients, so it's important to keep the box sealed and away from humidity. This ensures the ingredients only activate when you moisten and apply them to your skin.</p></div>\n    </details>\n    <details class=\"antiacne-faq-item\">\n      <summary>What is the \"InYourSkin\" project?</summary>\n      <div class=\"antiacne-faq-answer\"><p>\"InYourSkin\" is a joint project between AntiAcne and the nonprofit organization Srdcem Robinson. Its goal is to support not only healthy, confident skin but also families going through difficult situations. A portion of every AntiAcne purchase goes directly to supporting this cause.</p></div>\n    </details>\n  </div>\n</section>",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "product_list_featured": {
       "type": "product-list",
       "blocks": {
         "static-header": {
@@ -123,22 +212,22 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_list_text_YFtzcL": {
+            "header_title": {
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h3>Shop Our Products</h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
+                "type_preset": "h3",
+                "font": "var(--font-heading--family)",
                 "font_size": "",
                 "line_height": "normal",
                 "letter_spacing": "normal",
                 "case": "none",
                 "wrap": "pretty",
-                "color": "var(--color-foreground)",
+                "color": "var(--color-foreground-heading)",
                 "background": false,
                 "background_color": "#00000026",
                 "corner_radius": 0,
@@ -149,7 +238,7 @@
               },
               "blocks": {}
             },
-            "product_list_button_MWeP9V": {
+            "header_button": {
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
@@ -165,8 +254,8 @@
             }
           },
           "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
+            "header_title",
+            "header_button"
           ]
         },
         "static-product-card": {
@@ -187,7 +276,7 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "product_card_gallery_677WP3": {
+            "card_gallery": {
               "type": "_product-card-gallery",
               "name": "t:names.product_card_media",
               "settings": {
@@ -203,7 +292,7 @@
               },
               "blocks": {}
             },
-            "product_title_YXxMTj": {
+            "card_title": {
               "type": "product-title",
               "name": "t:names.product_title",
               "settings": {
@@ -228,7 +317,7 @@
               },
               "blocks": {}
             },
-            "price_JQzVV4": {
+            "card_price": {
               "type": "price",
               "name": "t:names.product_price",
               "settings": {
@@ -253,9 +342,9 @@
             }
           },
           "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
+            "card_gallery",
+            "card_title",
+            "card_price"
           ]
         }
       },
@@ -264,7 +353,7 @@
         "collection": "all",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 8,
+        "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
         "mobile_card_size": "60cqw",
@@ -276,13 +365,18 @@
         "horizontal_alignment": "flex-start",
         "gap": 28,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 64,
+        "padding-block-end": 64
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
-    "product_list_fa6P9H"
+    "hero_antiacne",
+    "how_it_works",
+    "technology_section",
+    "two_phases",
+    "testimonials",
+    "faq_section",
+    "product_list_featured"
   ]
 }

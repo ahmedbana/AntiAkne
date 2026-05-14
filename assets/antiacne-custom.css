@@ -1,0 +1,391 @@
+/* ==============================================
+   AntiAkne Custom Styles
+   Brand: AntiAcne DrySerum Wipes
+   ============================================== */
+
+/* --- Section Header --- */
+.antiacne-section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+
+.antiacne-section-header h2 {
+  margin: 8px 0 16px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.antiacne-section-header p {
+  color: var(--color-foreground);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.antiacne-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0D9B76;
+  background: #0D9B7614;
+  padding: 4px 14px;
+  border-radius: 100px;
+}
+
+/* --- How It Works --- */
+.antiacne-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.antiacne-step {
+  text-align: center;
+  padding: 40px 24px;
+  border-radius: 16px;
+  background: var(--color-scheme-background, #ffffff);
+  border: 1px solid var(--color-border, #E5E7EB);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.antiacne-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(13, 155, 118, 0.1);
+}
+
+.antiacne-step-number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0D9B76;
+  opacity: 0.5;
+}
+
+.antiacne-step-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.antiacne-step h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: var(--color-foreground-heading);
+}
+
+.antiacne-step p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-foreground);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* --- Technology Section --- */
+.antiacne-tech-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.antiacne-tech-content h2 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin: 8px 0 20px;
+  line-height: 1.2;
+}
+
+.antiacne-tech-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-foreground);
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.antiacne-tech-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.antiacne-tech-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--color-foreground);
+}
+
+.antiacne-check {
+  color: #0D9B76;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.antiacne-tech-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.antiacne-tech-card {
+  background: linear-gradient(135deg, #E8F5F0 0%, #F0F7F4 100%);
+  border-radius: 16px;
+  padding: 28px 20px;
+  text-align: center;
+  border: 1px solid #0D9B7614;
+  transition: transform 0.3s ease;
+}
+
+.antiacne-tech-card:hover {
+  transform: scale(1.03);
+}
+
+.antiacne-tech-stat {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0D9B76;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.antiacne-tech-card p {
+  font-size: 0.8125rem;
+  color: #374151;
+  margin: 0;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* --- Phases Section --- */
+.antiacne-phases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.antiacne-phase {
+  padding: 40px 32px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #0D9B7620;
+  transition: box-shadow 0.3s ease;
+}
+
+.antiacne-phase:hover {
+  box-shadow: 0 8px 32px rgba(13, 155, 118, 0.1);
+}
+
+.antiacne-phase-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.antiacne-phase-1 .antiacne-phase-badge {
+  background: #0D9B7618;
+  color: #0D9B76;
+}
+
+.antiacne-phase-2 .antiacne-phase-badge {
+  background: #6366f118;
+  color: #6366f1;
+}
+
+.antiacne-phase h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #1A1A2E;
+}
+
+.antiacne-phase > p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0 0 24px;
+}
+
+.antiacne-ingredients-list h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6B7280;
+  margin: 0 0 12px;
+}
+
+.antiacne-ingredient-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.antiacne-ingredient-tags span {
+  display: inline-block;
+  font-size: 0.8125rem;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: #F3F4F6;
+  color: #374151;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.antiacne-ingredient-tags span:hover {
+  background: #0D9B76;
+  color: #ffffff;
+}
+
+/* --- Testimonials --- */
+.antiacne-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.antiacne-review {
+  padding: 32px 28px;
+  border-radius: 16px;
+  background: #F8FAF9;
+  border: 1px solid #E5E7EB;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.antiacne-review:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.antiacne-stars {
+  color: #F59E0B;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.antiacne-review p {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: #374151;
+  margin: 0 0 16px;
+  font-style: italic;
+}
+
+.antiacne-reviewer {
+  font-size: 0.875rem;
+  color: #1A1A2E;
+}
+
+/* --- FAQ --- */
+.antiacne-faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.antiacne-faq-item {
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.antiacne-faq-item[open] {
+  border-color: #0D9B76;
+}
+
+.antiacne-faq-item summary {
+  padding: 20px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1A1A2E;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.2s;
+}
+
+.antiacne-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.antiacne-faq-item summary::after {
+  content: '+';
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #0D9B76;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.antiacne-faq-item[open] summary::after {
+  content: '−';
+}
+
+.antiacne-faq-item summary:hover {
+  background: #F8FAF9;
+}
+
+.antiacne-faq-answer {
+  padding: 0 24px 20px;
+}
+
+.antiacne-faq-answer p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #374151;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .antiacne-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .antiacne-tech-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .antiacne-phases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .antiacne-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .antiacne-step {
+    padding: 28px 20px;
+  }
+
+  .antiacne-phase {
+    padding: 28px 20px;
+  }
+}

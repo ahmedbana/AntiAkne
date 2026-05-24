@@ -177,31 +177,6 @@
     },
     "featured_product_home": {
       "type": "featured-product",
-      "blocks": {
-        "media": {
-          "type": "_media-without-appearance",
-          "static": true
-        },
-        "featured-product": {
-          "type": "_featured-product",
-          "static": true,
-          "blocks": {
-            "featured-product-title": {
-              "type": "product-title",
-              "settings": {
-                "type_preset": "h3",
-                "width": "100%"
-              }
-            },
-            "featured-product-price": {
-              "type": "_featured-product-price"
-            },
-            "featured-product-gallery": {
-              "type": "_featured-product-gallery"
-            }
-          }
-        }
-      },
       "settings": {
         "product": "",
         "layout": "media-left",

@@ -344,7 +344,7 @@
           <div class="vertical-video-card" {{ block.shopify_attributes }}>
             <div class="vertical-video-wrapper">
               
-              {%- if platform != 'none' -%}
+              {%- if section_settings.show_platform_badges and platform != 'none' -%}
                 <div class="video-platform-badge {{ platform }}">
                   {%- case platform -%}
                     {%- when 'tiktok' -%}
@@ -377,35 +377,37 @@
                   {% if poster != blank %}poster="{{ poster | image_url: width: 600 }}"{% endif %}
                 ></video>
 
-                <div class="video-controls-overlay"></div>
+                {%- if section_settings.show_control_overlays -%}
+                  <div class="video-controls-overlay"></div>
 
-                <!-- Custom Overlay Play/Pause Button -->
-                <div class="video-overlay-play-pause video-control-interactive">
-                  <button class="video-control-btn play-pause-btn" aria-label="Play Video">
-                    <!-- Play icon -->
-                    <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
-                      <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    <!-- Pause icon -->
-                    <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; display: none;">
-                      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                    </svg>
-                  </button>
-                </div>
+                  <!-- Custom Overlay Play/Pause Button -->
+                  <div class="video-overlay-play-pause video-control-interactive">
+                    <button class="video-control-btn play-pause-btn" aria-label="Play Video">
+                      <!-- Play icon -->
+                      <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                      <!-- Pause icon -->
+                      <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px; display: none;">
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                      </svg>
+                    </button>
+                  </div>
 
-                <!-- Custom Overlay Mute/Unmute Button -->
-                <div class="video-overlay-mute video-control-interactive">
-                  <button class="video-control-btn mute-btn" aria-label="Mute Video">
-                    <!-- Muted icon -->
-                    <svg class="icon-muted" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
-                      <path d="M3.63 3.63L2.22 5.04 7.18 10H3v4h4l5 5v-6.18l4.8 4.8c-.52.39-1.1.7-1.8.88v2.03c1.23-.27 2.34-.84 3.27-1.6l2.12 2.12 1.41-1.41L3.63 3.63zM12 4L9.91 6.09 12 8.18V4zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z"/>
-                    </svg>
-                    <!-- Unmuted icon -->
-                    <svg class="icon-unmuted" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px; display: none;">
-                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                    </svg>
-                  </button>
-                </div>
+                  <!-- Custom Overlay Mute/Unmute Button -->
+                  <div class="video-overlay-mute video-control-interactive">
+                    <button class="video-control-btn mute-btn" aria-label="Mute Video">
+                      <!-- Muted icon -->
+                      <svg class="icon-muted" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px;">
+                        <path d="M3.63 3.63L2.22 5.04 7.18 10H3v4h4l5 5v-6.18l4.8 4.8c-.52.39-1.1.7-1.8.88v2.03c1.23-.27 2.34-.84 3.27-1.6l2.12 2.12 1.41-1.41L3.63 3.63zM12 4L9.91 6.09 12 8.18V4zM16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71z"/>
+                      </svg>
+                      <!-- Unmuted icon -->
+                      <svg class="icon-unmuted" viewBox="0 0 24 24" fill="currentColor" style="width: 16px; height: 16px; display: none;">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                      </svg>
+                    </button>
+                  </div>
+                {%- endif -%}
               {%- elsif iframe_url != blank -%}
                 <!-- Iframe Embed Element -->
                 <iframe
@@ -424,15 +426,17 @@
                 </div>
               {%- endif -%}
 
-              {%- if title != blank or subtitle != blank -%}
-                <div class="video-description-overlay">
-                  {%- if title != blank -%}
-                    <h4>{{ title | escape }}</h4>
-                  {%- endif -%}
-                  {%- if subtitle != blank -%}
-                    <p>{{ subtitle | escape }}</p>
-                  {%- endif -%}
-                </div>
+              {%- if section_settings.show_text_overlays -%}
+                {%- if title != blank or subtitle != blank -%}
+                  <div class="video-description-overlay">
+                    {%- if title != blank -%}
+                      <h4>{{ title | escape }}</h4>
+                    {%- endif -%}
+                    {%- if subtitle != blank -%}
+                      <p>{{ subtitle | escape }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
               {%- endif -%}
             </div>
           </div>
@@ -511,61 +515,74 @@
 
       const playPauseBtn = card.querySelector('.play-pause-btn');
       const muteBtn = card.querySelector('.mute-btn');
-      const playIcon = playPauseBtn.querySelector('.icon-play');
-      const pauseIcon = playPauseBtn.querySelector('.icon-pause');
-      const mutedIcon = muteBtn.querySelector('.icon-muted');
-      const unmutedIcon = muteBtn.querySelector('.icon-unmuted');
 
       // Sync initial state
       card.classList.add('is-paused');
 
-      const togglePlay = (e) => {
-        if (e) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-        if (video.paused) {
-          video.play()
-            .then(() => {
-              card.classList.remove('is-paused');
-              playIcon.style.display = 'none';
-              pauseIcon.style.display = 'block';
-            })
-            .catch(err => console.log('Autoplay issue:', err));
-        } else {
-          video.pause();
-          card.classList.add('is-paused');
-          playIcon.style.display = 'block';
-          pauseIcon.style.display = 'none';
-        }
-      };
+      if (playPauseBtn && muteBtn) {
+        const playIcon = playPauseBtn.querySelector('.icon-play');
+        const pauseIcon = playPauseBtn.querySelector('.icon-pause');
+        const mutedIcon = muteBtn.querySelector('.icon-muted');
+        const unmutedIcon = muteBtn.querySelector('.icon-unmuted');
 
-      const toggleMute = (e) => {
-        if (e) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
-        video.muted = !video.muted;
-        if (video.muted) {
-          card.classList.remove('is-unmuted');
-          mutedIcon.style.display = 'block';
-          unmutedIcon.style.display = 'none';
-        } else {
-          card.classList.add('is-unmuted');
-          mutedIcon.style.display = 'none';
-          unmutedIcon.style.display = 'block';
-        }
-      };
+        const togglePlay = (e) => {
+          if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          if (video.paused) {
+            video.play()
+              .then(() => {
+                card.classList.remove('is-paused');
+                playIcon.style.display = 'none';
+                pauseIcon.style.display = 'block';
+              })
+              .catch(err => console.log('Autoplay issue:', err));
+          } else {
+            video.pause();
+            card.classList.add('is-paused');
+            playIcon.style.display = 'block';
+            pauseIcon.style.display = 'none';
+          }
+        };
 
-      // Click card to play/pause
-      card.querySelector('.vertical-video-wrapper').addEventListener('click', (e) => {
-        // If clicking controls themselves, let their separate event handlers manage it
-        if (e.target.closest('.video-control-interactive')) return;
-        togglePlay(e);
-      });
+        const toggleMute = (e) => {
+          if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+          }
+          video.muted = !video.muted;
+          if (video.muted) {
+            card.classList.remove('is-unmuted');
+            mutedIcon.style.display = 'block';
+            unmutedIcon.style.display = 'none';
+          } else {
+            card.classList.add('is-unmuted');
+            mutedIcon.style.display = 'none';
+            unmutedIcon.style.display = 'block';
+          }
+        };
 
-      playPauseBtn.addEventListener('click', togglePlay);
-      muteBtn.addEventListener('click', toggleMute);
+        // Click card to play/pause
+        card.querySelector('.vertical-video-wrapper').addEventListener('click', (e) => {
+          if (e.target.closest('.video-control-interactive')) return;
+          togglePlay(e);
+        });
+
+        playPauseBtn.addEventListener('click', togglePlay);
+        muteBtn.addEventListener('click', toggleMute);
+      } else {
+        // If overlays are hidden, we still want to support simple tap to play/pause if clicked
+        card.querySelector('.vertical-video-wrapper').addEventListener('click', (e) => {
+          if (video.paused) {
+            video.play().catch(err => console.log('Play failed:', err));
+            card.classList.remove('is-paused');
+          } else {
+            video.pause();
+            card.classList.add('is-paused');
+          }
+        });
+      }
     });
 
     // --- Autoplay/Pause On Scroll (IntersectionObserver) ---
@@ -575,27 +592,30 @@
           const video = entry.target;
           const card = video.closest('.vertical-video-card');
           const playPauseBtn = card.querySelector('.play-pause-btn');
-          const playIcon = playPauseBtn.querySelector('.icon-play');
-          const pauseIcon = playPauseBtn.querySelector('.icon-pause');
 
           if (entry.isIntersecting) {
             video.play()
               .then(() => {
                 card.classList.remove('is-paused');
-                playIcon.style.display = 'none';
-                pauseIcon.style.display = 'block';
+                if (playPauseBtn) {
+                  playPauseBtn.querySelector('.icon-play').style.display = 'none';
+                  playPauseBtn.querySelector('.icon-pause').style.display = 'block';
+                }
               })
               .catch(err => {
-                // Autoplay blocked fallback
                 card.classList.add('is-paused');
-                playIcon.style.display = 'block';
-                pauseIcon.style.display = 'none';
+                if (playPauseBtn) {
+                  playPauseBtn.querySelector('.icon-play').style.display = 'block';
+                  playPauseBtn.querySelector('.icon-pause').style.display = 'none';
+                }
               });
           } else {
             video.pause();
             card.classList.add('is-paused');
-            playIcon.style.display = 'block';
-            pauseIcon.style.display = 'none';
+            if (playPauseBtn) {
+              playPauseBtn.querySelector('.icon-play').style.display = 'block';
+              playPauseBtn.querySelector('.icon-pause').style.display = 'none';
+            }
           }
         });
       }, { threshold: 0.6 }); // Play when 60% visible
@@ -664,6 +684,28 @@
         }
       ],
       "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Video Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_platform_badges",
+      "label": "Show social platform badges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_text_overlays",
+      "label": "Show user details (username & subtitle)",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_control_overlays",
+      "label": "Show custom play/pause and mute/unmute buttons",
+      "default": true
     },
     {
       "type": "header",

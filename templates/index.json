@@ -389,14 +389,6 @@
     },
     "testimonials": {
       "type": "testimonials",
-      "settings": {
-        "label": "Real Results",
-        "title": "What Our Customers Say",
-        "color_scheme": "scheme-3",
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "review_1": {
           "type": "testimonial",
@@ -460,19 +452,20 @@
         "review_4",
         "review_5",
         "review_6"
-      ]
+      ],
+      "settings": {
+        "label": "Real Results",
+        "title": "What Our Customers Say",
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
+      }
     },
     "how_it_works": {
       "type": "how-it-works",
-      "settings": {
-        "label": "Simple & Effective",
-        "title": "How It Works",
-        "subtitle": "Your 30-day journey to clear, radiant skin in just 3 simple steps.",
-        "color_scheme": "scheme-1",
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "step_1": {
           "type": "step",
@@ -506,7 +499,18 @@
         "step_1",
         "step_2",
         "step_3"
-      ]
+      ],
+      "settings": {
+        "label": "Simple & Effective",
+        "title": "How It Works",
+        "subtitle": "Your 30-day journey to clear, radiant skin in just 3 simple steps.",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
+      }
     },
     "centered_image_jygUk3": {
       "type": "centered-image",
@@ -535,15 +539,6 @@
     },
     "technology_section": {
       "type": "technology",
-      "settings": {
-        "label": "Patented Innovation",
-        "title": "DrySerum™ Technology",
-        "content": "<p>AntiAcne is powered by <strong>NUENEX®</strong>, a patented nanofiber technology developed by RESPILON. Active ingredients are encapsulated in nanofibers and released gradually and precisely into your skin.</p>",
-        "color_scheme": "scheme-2",
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "feature_1": {
           "type": "feature",
@@ -614,19 +609,21 @@
         "stat_2",
         "stat_3",
         "stat_4"
-      ]
+      ],
+      "settings": {
+        "label": "Patented Innovation",
+        "title": "DrySerum™ Technology",
+        "content": "<p>AntiAcne is powered by <strong>NUENEX®</strong>, a patented nanofiber technology developed by RESPILON. Active ingredients are encapsulated in nanofibers and released gradually and precisely into your skin.</p>",
+        "color_scheme": "scheme-4",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
+      }
     },
     "two_phases": {
       "type": "two-phases",
-      "settings": {
-        "label": "The Science",
-        "title": "Two Phases. One Complete Cure.",
-        "subtitle": "Each phase is carefully formulated to target different aspects of acne treatment.",
-        "color_scheme": "scheme-1",
-        "section_width": "page-width",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      },
       "blocks": {
         "phase_1": {
           "type": "phase",
@@ -654,79 +651,59 @@
       "block_order": [
         "phase_1",
         "phase_2"
-      ]
-    },
-    "faq_section": {
-      "type": "faq",
+      ],
       "settings": {
-        "label": "Got Questions?",
-        "title": "Frequently Asked Questions",
-        "subtitle": "Everything you need to know about AntiAcne DrySerum™ Wipes.",
-        "color_scheme": "scheme-3",
+        "label": "The Science",
+        "title": "Two Phases. One Complete Cure.",
+        "subtitle": "Each phase is carefully formulated to target different aspects of acne treatment.",
+        "color_scheme": "scheme-1",
         "section_width": "page-width",
         "padding-block-start": 80,
-        "padding-block-end": 80
-      },
+        "padding-block-end": 80,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
+      }
+    },
+    "marquee_DG8AQc": {
+      "type": "marquee",
       "blocks": {
-        "faq_1": {
-          "type": "faq_item",
+        "text_TizchV": {
+          "type": "text",
           "settings": {
-            "question": "What if my skin feels dry after using AntiAcne?",
-            "answer": "<p>AntiAcne wipes contain active ingredients that intensively cleanse and nourish skin in one step, fully replacing a regular skincare routine. However, every skin reacts differently. If you experience mild dryness, you can apply your favorite moisturizer after use. It won't reduce AntiAcne's effectiveness.</p>"
-          }
-        },
-        "faq_2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How much water should I use to activate the wipe?",
-            "answer": "<p>Remove the protective paper and spray about 5–10 pumps of water onto the white nanofiber layer. Don't be afraid to use enough water — the better the nanofiber is moistened, the more effectively it works.</p>"
-          }
-        },
-        "faq_3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is AntiAcne suitable for sensitive skin?",
-            "answer": "<p>Yes. AntiAcne contains only natural active ingredients without preservatives or fragrances. Thanks to DrySerum technology, ingredients are released gradually and precisely, working gently yet effectively. If you have extremely sensitive skin, we recommend starting with a patch test.</p>"
-          }
-        },
-        "faq_4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Can acne get worse during the treatment?",
-            "answer": "<p>For some people, acne may briefly become more visible in the first days. This is a natural skin purging process — active ingredients draw impurities to the surface. It's typically a temporary phase, followed by calming, balancing, and long-term improvement.</p>"
-          }
-        },
-        "faq_5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why is it important to complete the full 30-day treatment?",
-            "answer": "<p>AntiAcne is designed as a complete 30-day cure with two connected phases. Phase I knocks out acne — cleansing and reducing redness. Phase II restores balance, supports regeneration, and keeps skin calm. The best results come from completing both phases, as their combination delivers long-term effects.</p>"
-          }
-        },
-        "faq_6": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Why should I keep the tin box closed?",
-            "answer": "<p>The wipes are stored in a practical metal tin that protects their effectiveness throughout the 30-day cure. Water activates the active ingredients, so it's important to keep the box sealed and away from humidity. This ensures the ingredients only activate when you moisten and apply them to your skin.</p>"
-          }
-        },
-        "faq_7": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is the \"InYourSkin\" project?",
-            "answer": "<p>\"InYourSkin\" is a joint project between AntiAcne and the nonprofit organization Srdcem Robinson. Its goal is to support not only healthy, confident skin but also families going through difficult situations. A portion of every AntiAcne purchase goes directly to supporting this cause.</p>"
-          }
+            "text": "<p>We make things that work better and last longer.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
         }
       },
       "block_order": [
-        "faq_1",
-        "faq_2",
-        "faq_3",
-        "faq_4",
-        "faq_5",
-        "faq_6",
-        "faq_7"
-      ]
+        "text_TizchV"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-4",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
     },
     "featured_product_information_Yh8e4t": {
       "type": "featured-product-information",
@@ -988,6 +965,80 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "faq_section": {
+      "type": "faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What if my skin feels dry after using AntiAcne?",
+            "answer": "<p>AntiAcne wipes contain active ingredients that intensively cleanse and nourish skin in one step, fully replacing a regular skincare routine. However, every skin reacts differently. If you experience mild dryness, you can apply your favorite moisturizer after use. It won't reduce AntiAcne's effectiveness.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much water should I use to activate the wipe?",
+            "answer": "<p>Remove the protective paper and spray about 5–10 pumps of water onto the white nanofiber layer. Don't be afraid to use enough water — the better the nanofiber is moistened, the more effectively it works.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is AntiAcne suitable for sensitive skin?",
+            "answer": "<p>Yes. AntiAcne contains only natural active ingredients without preservatives or fragrances. Thanks to DrySerum technology, ingredients are released gradually and precisely, working gently yet effectively. If you have extremely sensitive skin, we recommend starting with a patch test.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can acne get worse during the treatment?",
+            "answer": "<p>For some people, acne may briefly become more visible in the first days. This is a natural skin purging process — active ingredients draw impurities to the surface. It's typically a temporary phase, followed by calming, balancing, and long-term improvement.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why is it important to complete the full 30-day treatment?",
+            "answer": "<p>AntiAcne is designed as a complete 30-day cure with two connected phases. Phase I knocks out acne — cleansing and reducing redness. Phase II restores balance, supports regeneration, and keeps skin calm. The best results come from completing both phases, as their combination delivers long-term effects.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why should I keep the tin box closed?",
+            "answer": "<p>The wipes are stored in a practical metal tin that protects their effectiveness throughout the 30-day cure. Water activates the active ingredients, so it's important to keep the box sealed and away from humidity. This ensures the ingredients only activate when you moisten and apply them to your skin.</p>"
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is the \"InYourSkin\" project?",
+            "answer": "<p>\"InYourSkin\" is a joint project between AntiAcne and the nonprofit organization Srdcem Robinson. Its goal is to support not only healthy, confident skin but also families going through difficult situations. A portion of every AntiAcne purchase goes directly to supporting this cause.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6",
+        "faq_7"
+      ],
+      "settings": {
+        "label": "Got Questions?",
+        "title": "Frequently Asked Questions",
+        "subtitle": "Everything you need to know about AntiAcne DrySerum™ Wipes.",
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80,
+        "padding-inline-start": 16,
+        "padding-inline-end": 16
+      }
     }
   },
   "order": [
@@ -999,7 +1050,8 @@
     "centered_image_jygUk3",
     "technology_section",
     "two_phases",
-    "faq_section",
-    "featured_product_information_Yh8e4t"
+    "marquee_DG8AQc",
+    "featured_product_information_Yh8e4t",
+    "faq_section"
   ]
 }

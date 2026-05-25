@@ -68,15 +68,39 @@
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
-  .vertical-video-element,
-  .vertical-video-iframe {
+  .vertical-video-element {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
     border: none;
+  }
+
+  .vertical-video-iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+  }
+
+  /* Platform-specific cropping hacks to hide overlays */
+  .vertical-video-iframe.platform-instagram {
+    width: 100%;
+    height: 135%;
+    position: absolute;
+    top: -17%;
+    left: 0;
+  }
+
+  .vertical-video-iframe.platform-tiktok {
+    width: 130%;
+    height: 110%;
+    position: absolute;
+    top: -5%;
+    left: -15%;
   }
 
   /* Platform Badges */
@@ -411,7 +435,7 @@
               {%- elsif iframe_url != blank -%}
                 <!-- Iframe Embed Element -->
                 <iframe
-                  class="vertical-video-iframe"
+                  class="vertical-video-iframe platform-{{ platform }}"
                   src="{{ iframe_url }}"
                   loading="lazy"
                   allow="autoplay; encrypted-media"

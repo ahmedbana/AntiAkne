@@ -988,6 +988,49 @@
         "padding-block-start": 40,
         "padding-block-end": 40
       }
+    },
+    "vertical_video_reels": {
+      "type": "vertical-video-carousel",
+      "settings": {
+        "label": "Trending Reels",
+        "title": "AntiAcne in Action",
+        "subtitle": "See how users are transforming their skin in real time.",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      },
+      "blocks": {
+        "reel_1": {
+          "type": "video_card",
+          "settings": {
+            "platform": "tiktok",
+            "title": "@anna_skincare",
+            "subtitle": "How to activate AntiAcne dry pads 💧"
+          }
+        },
+        "reel_2": {
+          "type": "video_card",
+          "settings": {
+            "platform": "instagram",
+            "title": "@antiacne.eu",
+            "subtitle": "Unboxing the 30-day complete cure 📦"
+          }
+        },
+        "reel_3": {
+          "type": "video_card",
+          "settings": {
+            "platform": "youtube",
+            "title": "Dr. Sarah Johnson",
+            "subtitle": "Dermatologist review of NUENEX® technology 🔬"
+          }
+        }
+      },
+      "block_order": [
+        "reel_1",
+        "reel_2",
+        "reel_3"
+      ]
     }
   },
   "order": [
@@ -995,6 +1038,7 @@
     "marquee_KkA8Ji",
     "section_6AXPdU",
     "testimonials",
+    "vertical_video_reels",
     "how_it_works",
     "centered_image_jygUk3",
     "technology_section",

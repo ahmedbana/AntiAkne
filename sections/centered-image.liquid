@@ -1,0 +1,341 @@
+{%- liquid
+  assign section_settings = section.settings
+  assign image = section_settings.image
+  assign image_link = section_settings.image_link
+  
+  # Determine background styles
+  assign bg_style = ''
+  if section_settings.override_background and section_settings.background_color != blank
+    assign bg_style = 'background-color: ' | append: section_settings.background_color | append: ';'
+  endif
+-%}
+
+<div 
+  class="section-background color-{{ section_settings.color_scheme }}"
+  style="{{ bg_style }}"
+></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="
+    {% render 'spacing-padding', settings: section_settings %};
+    {{ bg_style }}
+  "
+>
+  <div
+    class="centered-image-section"
+    style="
+      --image-width-desktop: {{ section_settings.image_width_desktop }}px;
+      --image-width-mobile: {{ section_settings.image_width_mobile }}px;
+      --image-border-radius: {{ section_settings.image_border_radius }}px;
+      --image-border-width: {{ section_settings.image_border_width }}px;
+      --image-border-color: {{ section_settings.image_border_color | default: 'transparent' }};
+      {%- if section_settings.image_box_shadow -%}
+        --image-box-shadow: 0 10px 30px {{ section_settings.image_box_shadow_color | default: 'rgba(0,0,0,0.08)' }};
+      {%- else -%}
+        --image-box-shadow: none;
+      {%- endif -%}
+    "
+  >
+    <div class="centered-image-section__container">
+      {%- if image != blank -%}
+        {%- if image_link != blank -%}
+          <a href="{{ image_link }}" class="centered-image-section__wrapper centered-image-section__wrapper--link {% if section_settings.image_hover_effect %}centered-image-section__wrapper--hover{% endif %}">
+        {%- else -%}
+          <div class="centered-image-section__wrapper {% if section_settings.image_hover_effect %}centered-image-section__wrapper--hover{% endif %}">
+        {%- endif -%}
+
+        {%- capture image_sizes -%}
+          (min-width: 750px) {{ section_settings.image_width_desktop }}px, {{ section_settings.image_width_mobile }}px
+        {%- endcapture -%}
+
+        {{
+          image
+          | image_url: width: 2400
+          | image_tag:
+            width: image.width,
+            widths: '240, 360, 480, 640, 750, 900, 1200, 1500, 1800, 2000, 2400',
+            height: image.height,
+            class: 'centered-image-section__image',
+            alt: section_settings.image_alt | default: image.alt | default: shop.name,
+            sizes: image_sizes
+        }}
+
+        {%- if image_link != blank -%}
+          </a>
+        {%- else -%}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="centered-image-section__placeholder">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .centered-image-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .centered-image-section__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: var(--image-width-desktop);
+  }
+
+  @media screen and (max-width: 749px) {
+    .centered-image-section__container {
+      max-width: var(--image-width-mobile);
+    }
+  }
+
+  .centered-image-section__wrapper {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--image-border-radius, 0px);
+    border: var(--image-border-width, 0px) solid var(--image-border-color, transparent);
+    box-shadow: var(--image-box-shadow, none);
+    transition: transform var(--hover-transition-duration, 0.3s) cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow var(--hover-transition-duration, 0.3s) cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .centered-image-section__wrapper--link {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Premium Micro-animations & Interactive Effects */
+  .centered-image-section__wrapper--hover:hover {
+    transform: scale(1.025);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12), 0 3px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .centered-image-section__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: calc(var(--image-border-radius, 0px) - var(--image-border-width, 0px));
+  }
+
+  .centered-image-section__placeholder {
+    width: 100%;
+    background-color: rgb(var(--color-foreground-rgb) / var(--opacity-5));
+    aspect-ratio: 16/9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--image-border-radius, 0px);
+    border: var(--image-border-width, 0px) solid var(--image-border-color, transparent);
+  }
+
+  .centered-image-section__placeholder svg {
+    width: 80px;
+    height: 80px;
+    fill: rgb(var(--color-foreground-rgb) / var(--opacity-20));
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Centered Image",
+  "tag": "section",
+  "class": "section-centered-image",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_width_desktop",
+      "label": "Image width (desktop)",
+      "min": 100,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 400
+    },
+    {
+      "type": "range",
+      "id": "image_width_mobile",
+      "label": "Image width (mobile)",
+      "min": 50,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "default": 250
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image link",
+      "info": "Optional link when the image is clicked."
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Image alternative text",
+      "info": "Alternative text for accessibility. Fallbacks to default image alt text."
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "checkbox",
+      "id": "image_box_shadow",
+      "label": "Apply soft shadow to image",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "image_box_shadow_color",
+      "label": "Shadow color",
+      "default": "rgba(0,0,0,0.08)"
+    },
+    {
+      "type": "checkbox",
+      "id": "image_hover_effect",
+      "label": "Enable hover micro-scaling animation",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Image Border settings"
+    },
+    {
+      "type": "range",
+      "id": "image_border_width",
+      "label": "Border thickness",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "image_border_color",
+      "label": "Border color",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Background & Theme settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Solid background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "override_background",
+      "label": "Override theme color scheme with solid background",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "presets": [
+    {
+      "name": "Centered Image",
+      "settings": {
+        "image_width_desktop": 400,
+        "image_width_mobile": 250,
+        "background_color": "#ffffff",
+        "section_width": "page-width"
+      }
+    }
+  ]
+}
+{% endschema %}

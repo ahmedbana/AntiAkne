@@ -296,6 +296,20 @@
   opacity: 0.8;
 }
 
+.antiacne-reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.antiacne-review-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #E26D74;
+}
+
 /* --- FAQ --- */
 .antiacne-faq-list {
   max-width: 720px;

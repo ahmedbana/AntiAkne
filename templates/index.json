@@ -1043,6 +1043,16 @@
     "vertical_video_reels": {
       "type": "vertical-video-carousel",
       "blocks": {
+        "reel_3": {
+          "type": "video_card",
+          "settings": {
+            "video_url": "",
+            "embed_url": "https://youtu.be/iNlpNsML-ug?si=15KriNOvUu_e4qMh",
+            "platform": "youtube",
+            "title": "Dr. Sarah Johnson",
+            "subtitle": "Dermatologist review of NUENEX® technology 🔬"
+          }
+        },
         "reel_1": {
           "type": "video_card",
           "settings": {
@@ -1062,22 +1072,12 @@
             "title": "@antiacne.eu",
             "subtitle": "Unboxing the 30-day complete cure 📦"
           }
-        },
-        "reel_3": {
-          "type": "video_card",
-          "settings": {
-            "video_url": "",
-            "embed_url": "https://youtu.be/iNlpNsML-ug?si=15KriNOvUu_e4qMh",
-            "platform": "youtube",
-            "title": "Dr. Sarah Johnson",
-            "subtitle": "Dermatologist review of NUENEX® technology 🔬"
-          }
         }
       },
       "block_order": [
+        "reel_3",
         "reel_1",
-        "reel_2",
-        "reel_3"
+        "reel_2"
       ],
       "settings": {
         "label": "Trending Reels",
@@ -1085,6 +1085,9 @@
         "subtitle": "See how users are transforming their skin in real time.",
         "color_scheme": "scheme-2",
         "section_width": "page-width",
+        "show_platform_badges": false,
+        "show_text_overlays": false,
+        "show_control_overlays": true,
         "padding-block-start": 80,
         "padding-block-end": 80,
         "padding-inline-start": 16,

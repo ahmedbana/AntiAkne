@@ -1,0 +1,202 @@
+{%- liquid
+  assign section_settings = section.settings
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section_settings %}"
+>
+  <section class="antiacne-faq">
+    {%- if section_settings.title != blank or section_settings.subtitle != blank or section_settings.label != blank -%}
+      <div class="antiacne-section-header">
+        {%- if section_settings.label != blank -%}
+          <span class="antiacne-label">{{ section_settings.label | escape }}</span>
+        {%- endif -%}
+        {%- if section_settings.title != blank -%}
+          <h2>{{ section_settings.title }}</h2>
+        {%- endif -%}
+        {%- if section_settings.subtitle != blank -%}
+          <p>{{ section_settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="antiacne-faq-list">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign question = block.settings.question
+          assign answer = block.settings.answer
+        -%}
+        {%- if question != blank and answer != blank -%}
+          <details class="antiacne-faq-item" {{ block.shopify_attributes }}>
+            <summary>{{ question | escape }}</summary>
+            <div class="antiacne-faq-answer">
+              {{ answer }}
+            </div>
+          </details>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "tag": "section",
+  "class": "section-faq",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "FAQ"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Everything you need to know about AntiAcne DrySerum™ Wipes."
+    },
+    {
+      "type": "header",
+      "content": "Theme settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Question goes here"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Answer goes here.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does the dry formula work?",
+            "answer": "<p>The DrySerum is activated only when you spray water on it. The water dissolves the nanofiber structure, releasing the active ingredients directly into your skin.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it suitable for sensitive skin?",
+            "answer": "<p>Yes. The formula is up to 100% natural, contains no preservatives, perfume, or alcohol, making it extremely gentle and safe for sensitive skin types.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How often should I use it?",
+            "answer": "<p>For best results, use daily for 30 days. Phase I is used for the first 15 days, and Phase II for the remaining 15 days.</p>"
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where is it manufactured?",
+            "answer": "<p>All AntiAcne DrySerum wipes are manufactured in Europe under clean, eco-friendly conditions using energy-efficient processes.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

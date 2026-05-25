@@ -1,0 +1,249 @@
+{%- liquid
+  assign section_settings = section.settings
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section_settings %}"
+>
+  <section class="antiacne-testimonials">
+    {%- if section_settings.title != blank or section_settings.label != blank -%}
+      <div class="antiacne-section-header">
+        {%- if section_settings.label != blank -%}
+          <span class="antiacne-label">{{ section_settings.label | escape }}</span>
+        {%- endif -%}
+        {%- if section_settings.title != blank -%}
+          <h2>{{ section_settings.title }}</h2>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="antiacne-reviews-grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign stars = block.settings.stars
+          assign review_text = block.settings.text
+          assign author = block.settings.author
+          assign avatar = block.settings.avatar
+          assign avatar_fallback = block.settings.avatar_fallback
+        -%}
+        <div class="antiacne-review" {{ block.shopify_attributes }}>
+          {%- if stars != blank -%}
+            <div class="antiacne-stars">{{ stars | escape }}</div>
+          {%- endif -%}
+          {%- if review_text != blank -%}
+            <p>{{ review_text | escape }}</p>
+          {%- endif -%}
+          <div class="antiacne-reviewer-info">
+            {%- if avatar != blank -%}
+              {{ avatar | image_url: width: 100, height: 100, crop: 'center' | image_tag: class: "antiacne-review-avatar", loading: "lazy", alt: author }}
+            {%- elsif avatar_fallback != blank -%}
+              <img class="antiacne-review-avatar" src="{{ avatar_fallback | asset_url }}" alt="{{ author | escape }}" loading="lazy">
+            {%- endif -%}
+            {%- if author != blank -%}
+              <div class="antiacne-reviewer"><strong>{{ author | escape }}</strong></div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section-testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Real Results"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "What Our Customers Say"
+    },
+    {
+      "type": "header",
+      "content": "Theme settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-4"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Stars Rating",
+          "default": "★★★★★"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review comment",
+          "default": "\"Review description goes here.\""
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author name",
+          "default": "Author Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Author avatar"
+        },
+        {
+          "type": "text",
+          "id": "avatar_fallback",
+          "label": "Asset avatar file name (fallback)",
+          "info": "Optional fallback name of file in assets folder, e.g. customer-1.png"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "text": "\"This product is amazing — it does exactly what it promises. My skin is beautiful, glowing, and acne has significantly reduced. I'll definitely keep buying it!\"",
+            "author": "Nikola T.",
+            "avatar_fallback": "customer-1.png"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "text": "\"After trying these wipes, I'm genuinely surprised. My skin has improved, it's smoother, and acne has become minimal. I'd absolutely buy this again.\"",
+            "author": "Vendula L.",
+            "avatar_fallback": "customer-2.png"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "text": "\"After the first use, you can already see results. The product significantly reduces redness. After a few days, acne improves dramatically.\"",
+            "author": "Kristýna V.",
+            "avatar_fallback": "customer-3.png"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "text": "\"I'm 25 and still have acne-prone skin. Thanks to AntiAcne, my painful subcutaneous acne barely forms anymore. My pores are visibly smaller and my skin feels absolutely perfect.\"",
+            "author": "Lucie M.",
+            "avatar_fallback": "customer-4.png"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "text": "\"I've been treating acne for years and tried so many products. AntiAcne is one that actually works! I noticed changes after just one week. After a month, my skin is brighter, more even, and my pores are reduced.\"",
+            "author": "Eliška F.",
+            "avatar_fallback": "customer-5.png"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★☆",
+            "text": "\"The packaging is stylish and portable — I even took it camping! My skin is less red and acne is significantly less visible. I'd recommend it for acne-prone skin and blackheads.\"",
+            "author": "Nikol H.",
+            "avatar_fallback": "customer-6.png"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

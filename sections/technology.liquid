@@ -1,0 +1,252 @@
+{%- liquid
+  assign section_settings = section.settings
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section_settings %}"
+>
+  <section class="antiacne-technology">
+    <div class="antiacne-tech-grid">
+      <div class="antiacne-tech-content">
+        {%- if section_settings.label != blank -%}
+          <span class="antiacne-label">{{ section_settings.label | escape }}</span>
+        {%- endif -%}
+        {%- if section_settings.title != blank -%}
+          <h2>{{ section_settings.title }}</h2>
+        {%- endif -%}
+        {%- if section_settings.content != blank -%}
+          {{ section_settings.content }}
+        {%- endif -%}
+
+        {%- assign feature_blocks = section.blocks | where: "type", "feature" -%}
+        {%- if feature_blocks.size > 0 -%}
+          <ul class="antiacne-tech-features">
+            {%- for block in feature_blocks -%}
+              <li {{ block.shopify_attributes }}>
+                <span class="antiacne-check">✓</span> {{ block.settings.text | escape }}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+
+      <div class="antiacne-tech-visual">
+        {%- assign stat_blocks = section.blocks | where: "type", "stat_card" -%}
+        {%- for block in stat_blocks -%}
+          <div class="antiacne-tech-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.stat_value != blank -%}
+              <div class="antiacne-tech-stat">{{ block.settings.stat_value | escape }}</div>
+            {%- endif -%}
+            {%- if block.settings.stat_label != blank -%}
+              <p>{{ block.settings.stat_label | escape }}</p>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Technology",
+  "tag": "section",
+  "class": "section-technology",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content settings"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Patented Innovation"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "DrySerum™ Technology"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content",
+      "default": "<p>AntiAcne is powered by <strong>NUENEX®</strong>, a patented nanofiber technology developed by RESPILON. Active ingredients are encapsulated in nanofibers and released gradually and precisely into your skin.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Theme settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature List Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature text",
+          "default": "Feature description goes here"
+        }
+      ]
+    },
+    {
+      "type": "stat_card",
+      "name": "Stat Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stat_value",
+          "label": "Stat value",
+          "default": "100%"
+        },
+        {
+          "type": "text",
+          "id": "stat_label",
+          "label": "Stat label",
+          "default": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Technology",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Up to 100% natural active ingredients"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "No preservatives or synthetic fragrances"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Clinically proven to reduce acne"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Waterless manufacturing process"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "text": "Eco-friendly minimal energy production"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "stat_value": "100%",
+            "stat_label": "Natural Active Ingredients"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "stat_value": "30",
+            "stat_label": "Day Complete Treatment"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "stat_value": "2",
+            "stat_label": "Targeted Treatment Phases"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "stat_value": "0",
+            "stat_label": "Preservatives & Chemicals"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

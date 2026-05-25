@@ -1,0 +1,255 @@
+{%- liquid
+  assign section_settings = section.settings
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section_settings %}"
+>
+  <section class="antiacne-phases">
+    {%- if section_settings.title != blank or section_settings.subtitle != blank or section_settings.label != blank -%}
+      <div class="antiacne-section-header">
+        {%- if section_settings.label != blank -%}
+          <span class="antiacne-label">{{ section_settings.label | escape }}</span>
+        {%- endif -%}
+        {%- if section_settings.title != blank -%}
+          <h2>{{ section_settings.title }}</h2>
+        {%- endif -%}
+        {%- if section_settings.subtitle != blank -%}
+          <p>{{ section_settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="antiacne-phases-grid">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign badge = block.settings.phase_badge
+          assign title = block.settings.phase_title
+          assign description = block.settings.phase_description
+          assign ingredients_title = block.settings.ingredients_title
+          assign ingredients_list = block.settings.ingredients | split: ","
+          assign style_class = block.settings.style_class
+        -%}
+        <div class="antiacne-phase {{ style_class }}" {{ block.shopify_attributes }}>
+          {%- if badge != blank -%}
+            <div class="antiacne-phase-badge">{{ badge | escape }}</div>
+          {%- endif -%}
+          {%- if title != blank -%}
+            <h3>{{ title | escape }}</h3>
+          {%- endif -%}
+          {%- if description != blank -%}
+            <p>{{ description | escape }}</p>
+          {%- endif -%}
+
+          {%- if block.settings.ingredients != blank -%}
+            <div class="antiacne-ingredients-list">
+              {%- if ingredients_title != blank -%}
+                <h4>{{ ingredients_title | escape }}</h4>
+              {%- endif -%}
+              <div class="antiacne-ingredient-tags">
+                {%- for ingredient in ingredients_list -%}
+                  {%- assign name = ingredient | strip -%}
+                  {%- if name != blank -%}
+                    <span>{{ name }}</span>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Two Phases",
+  "tag": "section",
+  "class": "section-two-phases",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 2,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "The Science"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Two Phases. One Complete Cure."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Each phase is carefully formulated to target different aspects of acne treatment."
+    },
+    {
+      "type": "header",
+      "content": "Theme settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Phase Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "style_class",
+          "label": "Phase Style",
+          "options": [
+            {
+              "value": "antiacne-phase-1",
+              "label": "Phase 1 (Coral style)"
+            },
+            {
+              "value": "antiacne-phase-2",
+              "label": "Phase 2 (Cyan style)"
+            }
+          ],
+          "default": "antiacne-phase-1"
+        },
+        {
+          "type": "text",
+          "id": "phase_badge",
+          "label": "Phase badge",
+          "default": "Phase I — Days 1–15"
+        },
+        {
+          "type": "text",
+          "id": "phase_title",
+          "label": "Phase title",
+          "default": "Deep Clean & Calm"
+        },
+        {
+          "type": "textarea",
+          "id": "phase_description",
+          "label": "Description",
+          "default": "Intensively cleanses, fights bacteria, and reduces redness and inflammation."
+        },
+        {
+          "type": "text",
+          "id": "ingredients_title",
+          "label": "Ingredients section heading",
+          "default": "Key Ingredients"
+        },
+        {
+          "type": "text",
+          "id": "ingredients",
+          "label": "Ingredients (Comma separated)",
+          "default": "Hydrolyzed Collagen, Azelaic Acid, Niacinamide, Tea Tree Oil, Zinc Ferment, Glycerin",
+          "info": "Enter items separated by commas. Each item will render as an individual tag."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two Phases",
+      "blocks": [
+        {
+          "type": "phase",
+          "settings": {
+            "style_class": "antiacne-phase-1",
+            "phase_badge": "Phase I — Days 1–15",
+            "phase_title": "Deep Clean & Calm",
+            "phase_description": "Intensively cleanses, fights bacteria, and reduces redness and inflammation.",
+            "ingredients_title": "Key Ingredients",
+            "ingredients": "Hydrolyzed Collagen, Azelaic Acid, Niacinamide, Tea Tree Oil, Zinc Ferment, Glycerin"
+          }
+        },
+        {
+          "type": "phase",
+          "settings": {
+            "style_class": "antiacne-phase-2",
+            "phase_badge": "Phase II — Days 16–30",
+            "phase_title": "Balance & Regenerate",
+            "phase_description": "Restores skin's natural equilibrium, promotes regeneration, and maintains clarity.",
+            "ingredients_title": "Key Ingredients",
+            "ingredients": "Hydrolyzed Collagen, Azelaic Acid, Star Anise Extract, Dragon Fruit Extract, Red Clover Extract, Niacinamide"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

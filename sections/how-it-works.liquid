@@ -1,0 +1,221 @@
+{%- liquid
+  assign section_settings = section.settings
+-%}
+
+<div class="section-background color-{{ section_settings.color_scheme }}"></div>
+<div
+  class="section section--{{ section_settings.section_width }} spacing-style color-{{ section_settings.color_scheme }}"
+  style="{% render 'spacing-padding', settings: section_settings %}"
+>
+  <section id="how-it-works" class="antiacne-how-it-works">
+    {%- if section_settings.title != blank or section_settings.subtitle != blank or section_settings.label != blank -%}
+      <div class="antiacne-section-header">
+        {%- if section_settings.label != blank -%}
+          <span class="antiacne-label">{{ section_settings.label | escape }}</span>
+        {%- endif -%}
+        {%- if section_settings.title != blank -%}
+          <h2>{{ section_settings.title }}</h2>
+        {%- endif -%}
+        {%- if section_settings.subtitle != blank -%}
+          <p>{{ section_settings.subtitle | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="antiacne-steps">
+      {%- for block in section.blocks -%}
+        {%- liquid
+          assign step_number = block.settings.step_number
+          assign step_icon = block.settings.step_icon
+          assign step_title = block.settings.step_title
+          assign step_description = block.settings.step_description
+        -%}
+        <div class="antiacne-step" {{ block.shopify_attributes }}>
+          {%- if step_number != blank -%}
+            <div class="antiacne-step-number">{{ step_number | escape }}</div>
+          {%- endif -%}
+          {%- if step_icon != blank -%}
+            <div class="antiacne-step-icon">{{ step_icon | escape }}</div>
+          {%- endif -%}
+          {%- if step_title != blank -%}
+            <h3>{{ step_title | escape }}</h3>
+          {%- endif -%}
+          {%- if step_description != blank -%}
+            <p>{{ step_description | escape }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "tag": "section",
+  "class": "section-how-it-works",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Label",
+      "default": "Simple & Effective"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "How It Works"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Your 30-day journey to clear, radiant skin in just 3 simple steps."
+    },
+    {
+      "type": "header",
+      "content": "Theme settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Theme color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "Page width"
+        },
+        {
+          "value": "full-width",
+          "label": "Full width"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "header",
+      "content": "Spacing (Padding)"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "Top padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-start",
+      "label": "Left padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding-inline-end",
+      "label": "Right padding (inline)",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "step_number",
+          "label": "Step number",
+          "info": "e.g., 01, 02"
+        },
+        {
+          "type": "text",
+          "id": "step_icon",
+          "label": "Emoji / Icon",
+          "info": "e.g., 💧, ✨, 🌿"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Title",
+          "default": "Step Title"
+        },
+        {
+          "type": "textarea",
+          "id": "step_description",
+          "label": "Description",
+          "default": "Step description goes here."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How It Works",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "01",
+            "step_icon": "💧",
+            "step_title": "Activate",
+            "step_description": "Remove the protective paper and spray 5–10 pumps of water onto the white nanofiber layer to activate the DrySerum."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "02",
+            "step_icon": "✨",
+            "step_title": "Apply",
+            "step_description": "Gently wipe the activated pad across your face and décolleté. The nanofibers release active ingredients directly into your skin."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "step_number": "03",
+            "step_icon": "🌿",
+            "step_title": "Transform",
+            "step_description": "Use daily for 30 days. Phase I (days 1–15) fights acne. Phase II (days 16–30) restores balance and regenerates."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
